@@ -1,13 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { IpfsImage } from 'react-ipfs-image';
 import Navbar from "../../components/navbar/Navbar";
 import Web3 from 'web3';
 
 export default function Bayc() {
-
-    const [infos, setInfos] = useState({
-        number: 0,
-        name: ""
-    }); 
 
     const [tokenInfos, setTokenInfos] = useState({
         transactionHash: "",
@@ -17,27 +13,18 @@ export default function Bayc() {
         from: "",
         to: "",
         gasUsed: "",
-    }); 
-    
+    });
+
+    const [infos, setInfos] = useState({
+        number: null,
+        name: ""
+    });
 
     const abi = require("../../contracts/fakebayc.json").abi; 
     const address = "0x1dA89342716B14602664626CD3482b47D5C2005E"; 
 
     let web3 = new Web3(window.ethereum);
     var contract = new web3.eth.Contract(abi, address);
-
-    useEffect(() => {
-        getNumberAndName();
-    });
-
-    async function getNumberAndName() {
-        let number = await contract.methods.tokenCounter().call();
-        let name = await contract.methods.name().call();
-        setInfos({
-            number: number,
-            name: name
-        });
-    }
 
     async function claimToken(){
         const accounts = await window.ethereum.request({method: 'eth_requestAccounts' }); 
@@ -55,8 +42,27 @@ export default function Bayc() {
             }); 
     }
 
+    async function listAllTokens(){
+        let number = await contract.methods.tokenCounter().call();
+        let name = await contract.methods.name().call();
+        const check = [];
+        document.getElementById("ldd").style.display = "block";
+        for(let i = 0; i < number; i++) {
+            let infos = await contract.methods.tokenURI(i).call();
+            const data = await fetch(infos).then(res => res.json());
+            setInfos({
+                number: number,
+                name: name
+            });
+            check.push(data.image.replace("ipfs://", "https://ipfs.io/ipfs/"));
+            var s = "<img src='"+check[i]+"' class='nft' onclick='window.open(`./bayc/"+i+"`)' />";
+            document.getElementById("listee").innerHTML += s;
+        }
+        document.getElementById("ldd").style.display = "none";
+    }
+
     return (
-        <div className='Page'>
+        <div className='Page' onLoad={listAllTokens}>
             <Navbar />
             <div className="ctn">
                 <h1>{infos.name}</h1>
@@ -68,7 +74,7 @@ export default function Bayc() {
                 }
                 {tokenInfos.transactionHash  &&
                 <p className="infos infos-pretty">
-                    <button onClick={() => (console.log)} className="info-btn">i</button>
+                    <button onClick={() => (window.open("./bayc/" + infos.number))} className="info-btn">i</button>
                     <br></br>
                     <br></br>
                     <table>
@@ -83,6 +89,16 @@ export default function Bayc() {
                     </table>
                 </p>
                 }
+                <div className="infos infos-pretty" id="listee">
+                    <h1>Liste des Fake Bored Ape Yacht Club</h1>
+                    <br></br>
+
+                </div>
+                <div id="ldd" className="infos infos-pretty">
+                    <p class="popup-msg">
+                        Please wait for the NFT to be loaded...
+                    </p>
+                </div>
             </div>
         </div>
     );
