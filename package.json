@@ -2,7 +2,6 @@
   "name": "web3connect",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "dependencies": {
     "@rollup/plugin-terser": "^0.2.0",
     "@testing-library/jest-dom": "^5.16.5",
