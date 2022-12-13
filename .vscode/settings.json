@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/3a9d4ec8-f877-445b-b386-81c2272088eb/AppServices/subscriptions/3a9d4ec8-f877-445b-b386-81c2272088eb/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/snytoken",
+    "appService.deploySubpath": "."
+}
