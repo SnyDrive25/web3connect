@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { IpfsImage } from 'react-ipfs-image';
 import Navbar from "../../components/navbar/Navbar";
-import Web3 from 'web3';
 
 export default function Bayc() {
 
+    const Web3 = require("web3");
+    
     const [tokenInfos, setTokenInfos] = useState({
         transactionHash: "",
         blockNumber: "",

@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { IpfsImage } from 'react-ipfs-image';
 import Navbar from "../../components/navbar/Navbar";
-import Web3 from 'web3';
 import { useParams } from 'react-router-dom';
 
 export default function BaycTokenInfo() {
+
+    const Web3 = require("web3");
 
     const [tokenId, setTokenId] = useState();
     const { handle } = useParams();

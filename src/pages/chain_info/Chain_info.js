@@ -1,9 +1,10 @@
 import { useState } from "react";
-import Web3 from 'web3';
 import Navbar from "../../components/navbar/Navbar";
 import Popup from "../../components/popup/Popup";
 
 export default function ChainInfo() {
+
+    const Web3 = require("web3");
 
     const[isConnected, setIsConnected] = useState(false);
     const[account, setAccount] = useState("");
