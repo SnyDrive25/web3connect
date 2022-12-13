@@ -34,9 +34,21 @@ body {
 .code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  background-color: rgb(0,0,0,.4);
+  border-radius: .4em;
+  padding: .4em;
+  padding-bottom: .1em;
   color: var(--light);
-  text-decoration: underline var(--glow-color);
+  margin-left: .1em;
+  font-size: 1.2em;
   user-select: all;
+}
+
+h1 {
+  font-size: 2em;
+  color: var(--glow-color);
+  text-shadow: 2px 2px 4px black;
+  text-align: center;
 }
 
 @media only screen and (max-width: 1399px) {
@@ -45,6 +57,10 @@ body {
     background: var(--black);
   }
 
+  .full-width {
+    width: 100vw!important;
+  }
+  
   #Navbar {
     position: sticky;
     width: 98%;
@@ -95,6 +111,17 @@ body {
 
   body {
     background: url("./background.jpg");
+  }
+
+  .full-width {
+    width: 60vw!important;
+  }
+    
+  .infos-special {
+    width: 100%;
+    height: 100%;
+    border-left: 3px solid var(--enhanced-glow-color);
+    padding-left: 1%;
   }
 
   #Navbar {
@@ -151,6 +178,14 @@ body {
   position: fixed;
   background-color: rgb(0,0,0,.4);
   overflow-y: scroll;
+  overflow-x: hidden;
+  /* HIDE SCROLLBAR FOR FIREFOX IE EDGE */
+  scrollbar-width: none;
+}
+
+/* HIDE SCROLLBAR FOR CHROME OPERA SAFARI */
+.Page::-webkit-scrollbar {
+  display: none;
 }
 
 #Navbar {
@@ -165,7 +200,7 @@ a {
 }
 
 p {
-  font-size: 1.2em;
+  font-size: 1em;
   color: var(--light);
   text-align: center;
   transition: all.4s;
@@ -192,6 +227,15 @@ p {
 .ctn {
   height: 10vh;
   margin: 1%;
+  margin-top: 5%;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctn p {
+  text-align: left;
+  font-size: 1.2em;
 }
 
 @keyframes shake {
@@ -254,4 +298,114 @@ a {
   box-shadow: 0 0 .4em .09em var(--glow-color),
   0 0 1em .4em var(--glow-spread-color),
   inset 0 0 .33em .09em var(--glow-color);
+}
+
+#popup {
+  display: none;
+  overflow: hidden;
+  opacity: 0;
+  z-index: 99;
+  background-color: rgb(0,0,0,.4);
+  backdrop-filter: blur(.4em);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.popup-msg {
+  text-align: center;
+  padding-top: 30vh;
+  width: 100%;
+  vertical-align: middle;
+  height: 100%;
+  color: rgb(144,25,25);
+  text-shadow: 2px 2px 4px black;
+  font-weight: bold;
+  font-size: 2.5em;
+}
+
+.infos,
+.infos-center {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.infos {
+  text-align: left;
+}
+
+.infos-center {
+  text-align: center!important;
+}
+
+.number {
+  background-color: var(--enhanced-glow-color);
+  color: var(--black);
+  padding: 4px;
+  border-radius: 7px;
+  user-select: all;
+}
+
+.info-btn {
+  float: right;
+  color: var(--enhanced-glow-color);
+  font-weight: bold;
+  background-color: transparent;
+  padding: 4px;
+  border-radius: 50px;
+  border: 2px solid var(--enhanced-glow-color);
+  width: 2em;
+  height: 2em;
+}
+
+.info-btn:hover {
+  cursor: pointer;
+  opacity: .4;
+}
+
+.infos-pretty {
+  background-color: rgb(0,0,0,.4);
+  border-radius: 25px;
+  padding: 25px;
+}
+
+.infos-special {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table {
+  border-collapse:collapse;
+}
+
+td {
+  line-height: 2em;
+  border-top: 1px solid var(--grey);
+}
+
+.noborder {
+  border: none!important;
+}
+
+td code {
+  float: right;
+  user-select: all;
+}
+
+.full-width {
+  padding: 2%;
+  background: linear-gradient(to right, rgb(0,0,0,.4), transparent);
+}
+
+.link {
+  color: var(--purple);
+}
+
+.link:hover {
+  cursor: pointer;
 }
