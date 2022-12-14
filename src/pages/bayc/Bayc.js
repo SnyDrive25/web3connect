@@ -46,13 +46,13 @@ export default function Bayc() {
         let number = await contract.methods.tokenCounter().call();
         let name = await contract.methods.name().call();
         const check = [];
-        for(let i = 0; i < 81; i++) {
+        setInfos({
+            number: number,
+            name: name
+        });
+        for(let i = 0; i < number; i++) {
             let infos = await contract.methods.tokenURI(i).call();
             const data = await fetch(infos).then(res => res.json());
-            setInfos({
-                number: number,
-                name: name
-            });
             check.push(data.image.replace("ipfs://", "https://ipfs.io/ipfs/"));
             var s = "<img src='"+check[i]+"' class='nft' onclick='window.open(`./bayc/"+i+"`)' />";
             document.getElementById("listee").innerHTML += s;

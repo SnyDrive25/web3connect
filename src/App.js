@@ -3,10 +3,10 @@ import ChainInfo from "./pages/chain_info/Chain_info"
 import Bayc from "./pages/bayc/Bayc"
 import BaycTokenInfo from "./pages/bayc_token_info/Bayc_token_info"
 import Meebits from "./pages/meebits/Meebits"
-import MeebitsClaimer from "./pages/meebits_claimer/Meebits_claimer"
 import Nefturians from "./pages/nefturians/Nefturians"
 import NefturiansUserInfo from "./pages/nefturians_user_info/Nefturians_user_info"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './index.css';
 
 function App() {
 
@@ -20,7 +20,6 @@ function App() {
         <Route path="/nefturians" element={<Nefturians />}></Route>
         <Route path="/nefturians/:handle" element={<NefturiansUserInfo />}></Route>
         <Route path="/meebits" element={<Meebits />}></Route>
-        <Route path="/meebits_claimer" element={<MeebitsClaimer />}></Route>
       </Routes>
     </Router>
   );

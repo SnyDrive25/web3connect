@@ -42,7 +42,6 @@ function Navbar() {
                 <div className="titles"><a href="/bayc">BAYC</a></div>
                 <div className="titles"><a href="/nefturians">Nefturians</a></div>
                 <div className="titles"><a href="/meebits">Meebits</a></div>
-                <div className="titles"><a href="/meebits_claimer">Meebits Claimer</a></div>
             </div>
         </div>
     )

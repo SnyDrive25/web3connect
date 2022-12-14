@@ -385,6 +385,7 @@ a {
   text-align: left;
   margin-left: auto;
   margin-right: auto;
+  line-height: 200%;
 }
 
 table {
@@ -407,7 +408,7 @@ td code {
 
 .full-width {
   padding: 2%;
-  background: linear-gradient(to right, rgb(0,0,0,.4), transparent);
+  background: linear-gradient(to right, rgb(0,0,0,.9), rgb(0,0,0,.7), rgb(0,0,0,.7), rgb(0,0,0,.9));
 }
 
 .link {
@@ -416,6 +417,7 @@ td code {
 
 .link:hover {
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .image {
@@ -498,4 +500,41 @@ td code {
 .btn-center {
   margin-left: auto!important;
   margin-right: auto!important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.input {
+  background-color: rgb(0,0,0,.4);
+  color: white;
+  text-align: center;
+  width: fit-content;
+  height: auto;
+  border: none;
+  outline: none;
+  padding: 9px;
+  margin: 125px;
+  border-radius: 1em;
+  border: .17em solid var(--glow-color);
+  color: var(--glow-color);
+  font-size: 1.1em;
+  font-weight: bold;
+  box-shadow: 0 0 .7em .14em var(--glow-color),
+  0 0 4em 1em var(--glow-spread-color),
+  inset 0 0 .55em .14em var(--glow-color);
+  text-shadow: 0 0 .33em var(--glow-color);
+  transition: all.4s;
+}
+input:hover {
+  box-shadow: 0 0 .4em .09em var(--glow-color),
+  0 0 1em .4em var(--glow-spread-color),
+  inset 0 0 .33em .09em var(--glow-color);
 }
