@@ -46,8 +46,7 @@ export default function Bayc() {
         let number = await contract.methods.tokenCounter().call();
         let name = await contract.methods.name().call();
         const check = [];
-        document.getElementById("ldd").style.display = "block";
-        for(let i = 0; i < number; i++) {
+        for(let i = 0; i < 81; i++) {
             let infos = await contract.methods.tokenURI(i).call();
             const data = await fetch(infos).then(res => res.json());
             setInfos({
@@ -58,7 +57,6 @@ export default function Bayc() {
             var s = "<img src='"+check[i]+"' class='nft' onclick='window.open(`./bayc/"+i+"`)' />";
             document.getElementById("listee").innerHTML += s;
         }
-        document.getElementById("ldd").style.display = "none";
     }
 
     return (
@@ -93,11 +91,6 @@ export default function Bayc() {
                     <h1>Liste des Fake Bored Ape Yacht Club</h1>
                     <br></br>
 
-                </div>
-                <div id="ldd" className="infos infos-pretty">
-                    <p class="popup-msg">
-                        Please wait for the NFT to be loaded...
-                    </p>
                 </div>
             </div>
         </div>

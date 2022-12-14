@@ -118,7 +118,7 @@ h1 {
   }
 
   .infos-pretty {
-    max-width: 80%;
+    width: 80%;
   }
 
   .infos-special {
@@ -449,4 +449,53 @@ td code {
 
 #listee {
   margin-bottom: 50px;
+}
+
+.btn-left, .btn-right {
+  width: 25vw;
+  padding: 0;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--glow-color);
+  transition: all.4s;
+}
+
+.btn-left:hover, .btn-right:hover {
+  cursor: pointer;
+  transform: scale(1.25);
+}
+
+.btn-left {
+  float: left;
+}
+
+.btn-right {
+  float: right;
+}
+
+.contentt-flex {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(0,0,0,.4);
+  border-radius: 25px;
+  margin-top: 40vh;
+  width: 50vw;
+}
+
+.al-left {
+  text-align: left;
+}
+
+.pretty2 {
+  border-radius: 0px!important;
+  width: 100%!important;
+}
+
+.btn-center {
+  margin-left: auto!important;
+  margin-right: auto!important;
 }

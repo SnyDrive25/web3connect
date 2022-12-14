@@ -18,7 +18,7 @@ export default function ChainInfo() {
         } else if (window.web3) {
             provider = window.web3.currentProvider;
         } else {
-            console.log("Your browser does not have Metamask extension, please install it");
+            alert("Your browser does not have Metamask extension, please install it");
         }
         return provider;
     }
