@@ -135,7 +135,7 @@ h1 {
     left: 0;
     z-index: 1;
     width: 100%;
-    height: fit-content!important;
+    height: 1.9!important;
     padding-top: 1em;
     padding-bottom: 1em;
     margin-left: auto;
