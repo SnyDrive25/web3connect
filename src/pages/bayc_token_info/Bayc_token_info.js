@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { IpfsImage } from 'react-ipfs-image';
 import Navbar from "../../components/navbar/Navbar";
 import { useParams } from 'react-router-dom';
+import "../../index.css";
 
 export default function BaycTokenInfo() {
 

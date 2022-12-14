@@ -1,6 +1,7 @@
 import Navbar from "../../components/navbar/Navbar";
 import { useState } from "react";
 import signs from "../../contracts/signatures.json";
+import "../../index.css";
 
 export default function Meebits() {
 

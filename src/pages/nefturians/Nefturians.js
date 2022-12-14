@@ -1,5 +1,6 @@
 import Navbar from "../../components/navbar/Navbar";
 import { useState } from "react";
+import "../../index.css";
 
 export default function Nefturians() {
 

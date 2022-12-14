@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import Popup from "../../components/popup/Popup";
+import "../../index.css";
 
 export default function ChainInfo() {
 
