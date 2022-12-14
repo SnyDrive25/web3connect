@@ -1,3 +1,5 @@
+import '../navbar/navbar.css';
+
 function Navbar() {
     var keys = {37: 1, 38: 1, 39: 1, 40: 1};
 
