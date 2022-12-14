@@ -36,7 +36,7 @@ export default function Meebits() {
         setName(name);
     }
 
-    async function mintToken(){
+    async function claimToken(){
         let token = document.getElementById("mint").value;
         let valide = await contract4.methods.tokensThatWereClaimed(token).call();
         if(valide) {
@@ -71,7 +71,7 @@ export default function Meebits() {
                 }
                 <br></br>
                 {!tokenInfos.transactionHash  &&
-                <button onClick={() => mintToken()} className="button">Mint your Token</button>
+                <button onClick={() => claimToken()} className="button">Claim your Token</button>
                 }
                 {tokenInfos.transactionHash  &&
                 <p className="infos infos-pretty">
