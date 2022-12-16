@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# ERC721 UX
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Launch the project - Way 1
 
-## Available Scripts
+Open the link https://snytoken.vercel.app/[https://snytoken.vercel.app/]
+
+## Launch the project - Way 2
 
 In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Code explaination
 
-### `npm test`
+### Connection to web3
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To connect to web3 with Metamask, I used the Web3.js library
 
-### `npm run build`
+```js
+const Web3 = require("web3");
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+let web3 = new Web3(window.ethereum);
+var contract = new web3.eth.Contract(abi, address);
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Execute functions from the smart contract
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```js
+async function interact(){
+    const accounts = await window.ethereum.request({method: 'eth_requestAccounts' });
 
-### `npm run eject`
+    // if the function we interact with doesn't require any parameters :
+    await contract.methods.contractFunction().send({from: accounts[0]})
+    
+    // if the function we interact with doesn't require any parameters but needs a price value :
+    await contract.methods.contractFunction().send({from: accounts[0], value: 900050000000000000})
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    // if the function we interact with requires parameters (here parameter1 and parameter2) :
+    await contract.methods.contractFunction(parameter1, parameter2).send({from: accounts[0]})
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+        .then((res) => {
+            setInfos(res)
+        }); 
+    }
+```
